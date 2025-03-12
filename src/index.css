@@ -1,0 +1,7 @@
+body{
+    background-color: aliceblue;
+    overflow: hidden; /* Disables both horizontal & vertical scrolling */
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
