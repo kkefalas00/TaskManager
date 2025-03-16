@@ -1,7 +1,9 @@
 import styles from './ProjectTask.module.css';
 import { useState,useRef } from 'react';
+import { useGlobal } from '../GlobalContext/GlobalContext';
 
-export default function ProjectTask({ project, onBack, onDelete }) {
+export default function ProjectTask() {
+    const {selectedProject, handleBack, handleDelete} = useGlobal();
     const [tasks, setTasks] = useState([]);
     const taskRef = useRef();
 
@@ -26,18 +28,18 @@ export default function ProjectTask({ project, onBack, onDelete }) {
     return (
         <div className={styles.container}>
             <div className={styles["button-container"]}>
-                <button className={styles["cancel"]} onClick={onBack}>Back</button>
-                <button className={styles["delete"]} onClick={() => onDelete(project)}>Delete</button>
+                <button className={styles["cancel"]} onClick={handleBack}>Back</button>
+                <button className={styles["delete"]} onClick={() => handleDelete(selectedProject)}>Delete</button>
             </div>
 
             <label>TITLE</label>
-            <input type="text" value={project.name} readOnly />
+            <input type="text" value={selectedProject.name} readOnly />
 
             <label>DESCRIPTION</label>
-            <input type="text" value={project.desc} readOnly />
+            <input type="text" value={selectedProject.desc} readOnly />
 
             <label>DUE DATE</label>
-            <input type="text" value={project.date} readOnly />
+            <input type="text" value={selectedProject.date} readOnly />
 
             <div className={styles["taskContainer"]}>
                 <h3>Tasks</h3>

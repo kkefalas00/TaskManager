@@ -1,6 +1,9 @@
 import styles from "./Project.module.css"
-export default function Project({name, desc, date, handleCancel, handleSave}){
+import { useGlobal } from "../GlobalContext/GlobalContext";
 
+export default function Project(){
+
+    const {nameProject, descProject, dateProject, handleCancel, handleSave} = useGlobal();
     return(
         <div className={styles["container"]}>
             <div className={styles["button-container"]}>
@@ -8,13 +11,13 @@ export default function Project({name, desc, date, handleCancel, handleSave}){
                 <button onClick={handleSave}>Save</button>
             </div>
             <label>TITLE</label>
-            <input ref={name} type="text" />
+            <input ref={nameProject} type="text" />
 
             <label>DESCRIPTION</label>
-            <input ref={desc} type="text" />
+            <input ref={descProject} type="text" />
 
             <label>DUE DATE</label>
-            <input ref={date} type="date" />
+            <input ref={dateProject} type="date" />
     </div>
     );
 }
