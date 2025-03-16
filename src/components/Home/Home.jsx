@@ -81,7 +81,7 @@ export default function Home(){
                     />
                 )}
 
-                {selectedProject && <ProjectTask project={selectedProject} onBack={handleBack}/>}
+                {selectedProject && <ProjectTask project={selectedProject} onBack={handleBack} onDelete={handleDelete} />}
             </div>   
         </Fragment>
     );
