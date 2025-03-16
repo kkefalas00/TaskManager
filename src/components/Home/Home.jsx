@@ -14,7 +14,7 @@ export default function Home(){
 
 
     const [projects, setProjects] = useState([]);
-    const[isClicked, setIsClicked] = useState(false);
+    const [isClicked, setIsClicked] = useState(false);
     const [selectedProject, setSelectedProject] = useState(null);
 
     const handleCancel = () =>{
